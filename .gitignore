@@ -132,6 +132,7 @@ dmypy.json
 # Linux
 .*
 !.gitignore
+!.github
 *~
 *.swp
 

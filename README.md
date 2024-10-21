@@ -61,6 +61,12 @@ $ .\venv\Scripts\activate
 (venv) $ python -m ecorcon
 ```
 
+### Docker
+
+```
+docker run -d -p 8080 -v "$PWD/instance:instance" ghcr.io/halkeye/ecosm:latest
+```
+
 That's Windows Power Shell. If Unix second line is:
 
 ```
