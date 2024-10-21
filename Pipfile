@@ -9,9 +9,10 @@ flask-wtf = "*"
 mcrcon = "*"
 psutil = "*"
 quart = {extras = ["dotenv"], version = "*"}
+quart_flask_patch = "*"
 quart-auth = "*"
 uvicorn = "*"
-ecorcon = {editable = true, path = "."}
+ecorcon = {file = ".", editable = true}
 
 [dev-packages]
 pipenv-setup = {ref = "master", git = "https://github.com/Madoshakalaka/pipenv-setup"}

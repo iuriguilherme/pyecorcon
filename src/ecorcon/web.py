@@ -1,10 +1,10 @@
 """Starts Web application"""
 
+import quart_flask_patch
 from quart import (
   abort,
   # ~ current_app,
   flash,
-  flask_patch,
   jsonify,
   Quart,
   render_template,
@@ -21,7 +21,7 @@ from jinja2 import TemplateNotFound
 import logging
 import os
 from quart_auth import (
-  AuthManager,
+  QuartAuth,
   login_required,
   Unauthorized,
   AuthUser,
@@ -77,7 +77,7 @@ logger: logging.Logger = logging.getLogger(__name__)
 
 app: Quart = Quart(__name__)
 app.secret_key: str = secrets.token_urlsafe(32)
-AuthManager(app)
+QuartAuth(app)
 
 def populate_servers(
   servers: dict,
@@ -183,7 +183,7 @@ class ServerForm(FlaskForm):
   name_field = StringField("Alias / server identifier (no spaces)", [
     validators.DataRequired()], default = "greenleaf")
   path_field = StringField("Server binary path", [
-    validators.DataRequired()], default = "C:\Eco\EcoServer.exe")
+    validators.DataRequired()], default = r"C:\Eco\EcoServer.exe")
   password_field = PasswordField(
     "RCON Password (optional)",
     [

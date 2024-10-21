@@ -1,6 +1,8 @@
 [build-system]
 requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
+[tool.poetry]
+name = "ecorcon"
 [tool.poetry.scripts]
 dev = "uvicorn src.ecorcon.web:app --reload"
 stage = "python -m ecorcon staging"
